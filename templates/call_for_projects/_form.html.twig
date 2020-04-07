@@ -1,0 +1,17 @@
+
+{{ form_start(form) }}
+    {{ form_widget(form.label) }}
+    <div class="row fields-wrapper"
+         data-prototype="{{ form_widget(form.fields.vars.prototype)|e('html_attr') }}"
+         data-index="{{ form.fields|length }}"
+    >
+        {% for field in form.fields %}
+            {{ form_widget(field) }}
+        {% endfor %}
+        <a href="#" class="fields-add">
+            <span class="fa fa-plus-circle"></span>
+            Add Another Field
+        </a>
+    </div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

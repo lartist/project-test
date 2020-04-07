@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    A définir
+{% endblock %}
+
+{% block body %}
+    {{ form_start(createProjectForm) }}
+        {{ form_widget(createProjectForm) }}
+    <button>Ok</button>
+    {{ form_end(createProjectForm) }}
+{% endblock %}
+
+

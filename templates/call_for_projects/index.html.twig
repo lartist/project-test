@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CallForProjects index{% endblock %}
+
+{% block body %}
+    <h1>CallForProjects index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for call_for_project in call_for_projects %}
+            <tr>
+                <td>{{ call_for_project.id }}</td>
+                <td>{{ call_for_project.label }}</td>
+                <td>
+                    <a href="{{ path('call_for_projects_show', {'id': call_for_project.id}) }}">show</a>
+                    <a href="{{ path('call_for_projects_edit', {'id': call_for_project.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('call_for_projects_new') }}">Create new</a>
+{% endblock %}
